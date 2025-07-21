@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Carrasco | El Alma de la Canción</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+
+
+/* Variables CSS */
+:root {
+    --primary-color: #A0522D; /* Un tono tierra/marrón cálido */
+    --secondary-color: #D2B48C; /* Beige/arena más claro */
+    --accent-color: #8B4513; /* Marrón oscuro para acentos */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --background-light: #F8F8F8; /* Un gris muy claro */
+    --background-dark: #4F2F2F; /* Marrón muy oscuro */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header - Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('img/manuel_carrasco_main.jpg') no-repeat center center/cover;
+    color: var(--light-text-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    padding: 20px;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(210, 180, 140, 0.7); /* Sombra luminosa */
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero .tagline {
+    font-size: 1.8em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--light-text-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    background-color: #A52A2A; /* Un poco más oscuro */
+    transform: translateY(-5px);
+}
+
+.btn.small-btn {
+    padding: 10px 20px;
+    font-size: 0.95em;
+    border-radius: 25px;
+}
+
+/* Secciones generales */
+.section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(odd) {
+    background-color: var(--background-light);
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--secondary-color);
+    color: var(--background-dark);
+}
+
+.section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.section p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Sección Música */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.album-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: var(--text-color);
+}
+
+.album-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.album-card img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.album-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.album-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Sección Tour */
+.tour-section {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.tour-section h2 {
+    color: var(--light-text-color);
+}
+
+.tour-section h2::after {
+    background: var(--secondary-color);
+}
+
+.tour-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección Contacto */
+.contact-section {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+}
+
+.contact-section h2 {
+    color: var(--light-text-color);
+}
+
+.contact-section h2::after {
+    background: var(--secondary-color);
+}
+
+.social-links {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-size: 1.3em;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-dark);
+    transform: translateY(-5px);
+}
+
+.newsletter-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+.newsletter-form input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 30px;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: #999;
+}
+
+.newsletter-form .btn {
+    width: 100%;
+    padding: 15px;
+}
+
+.form-message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.95em;
+    border-top: 5px solid var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5em;
+    }
+
+    .hero .tagline {
+        font-size: 1.4em;
+    }
+
+    .hero-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section h2 {
+        font-size: 2.8em;
+        margin-bottom: 40px;
+    }
+
+    .section p {
+        font-size: 1.1em;
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    .album-card {
+        padding: 25px;
+    }
+
+    .social-links a {
+        margin: 0 15px;
+        font-size: 1.1em;
+        padding: 8px 16px;
+    }
+
+    .newsletter-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8em;
+    }
+
+    .hero .tagline {
+        font-size: 1.1em;
+    }
+
+    .hero-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section h2 {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+}
+
+ 
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <img src="img/manuel_carrasco_main.jpg" alt="Manuel Carrasco en concierto" class="hero-image">
+            <h1>Manuel Carrasco</h1>
+            <p class="tagline">La Voz del Sentimiento</p>
+            <a href="#about" class="btn">Conoce su Historia</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h2>Sobre Manuel Carrasco</h2>
+                <p>
+                    Manuel Carrasco Galloso (Isla Cristina, Huelva, 15 de enero de 1981) es uno de los cantautores más aclamados y queridos de España. Saltó a la fama tras su paso por la segunda edición del programa "Operación Triunfo" en 2002, donde quedó en segundo lugar. Desde entonces, ha forjado una carrera impecable, consolidándose como un referente en la música pop española con influencias de flamenco y rock.
+                </p>
+                <p>
+                    Sus canciones, cargadas de emotividad y poesía, conectan profundamente con el público. Ha publicado numerosos álbumes de éxito, como "Inercia", "Bailar el Viento", "La Cruz del Mapa" y "Corazón y Flecha", logrando discos de platino y llenando estadios en cada una de sus giras, destacando su récord en el Estadio de La Cartuja de Sevilla.
+                </p>
+            </div>
+        </section>
+
+        <section id="music" class="section music-section">
+            <div class="container">
+                <h2>Discografía Destacada</h2>
+                <div class="music-grid">
+                    <div class="album-card">
+                        <img src="img/manuel_carrasco_album.jpg" alt="Portada del álbum Corazón y Flecha">
+                        <h3>Corazón y Flecha</h3>
+                        <p>Lanzamiento: 2022</p>
+                        <p>Un álbum que fusiona sus raíces flamencas con sonidos contemporáneos, ofreciendo letras introspectivas y baladas poderosas.</p>
+                        <a href="https://open.spotify.com/album/43iC9c0t3oJc901QxK308P" target="_blank" class="btn small-btn">Escuchar en Spotify</a>
+                    </div>
+                    <div class="album-card">
+                        
+                        <img src="img/manuel_carrasco_cruzmapa.jpg" alt="Portada del álbum La Cruz del Mapa">
+                        <h3>La Cruz del Mapa</h3>
+                        <p>Lanzamiento: 2018</p>
+                        <p>Uno de sus trabajos más exitosos, con himnos como "Déjame Ser" y "Qué Bonito Es Querer", que lo llevó a su histórica gira de estadios.</p>
+                        <a href="https://open.spotify.com/album/0L2gD0lVfJjIe4Wd9V9aJp" target="_blank" class="btn small-btn">Escuchar en Spotify</a>
+                    </div>
+                    <div class="album-card">
+                        <img src="img/manuel_carrasco_bailaralviento.jpg" alt="Portada del álbum Bailar el Viento">
+                        <h3>Bailar el Viento</h3>
+                        <p>Lanzamiento: 2015</p>
+                        <p>Álbum fundamental en su carrera, que incluye éxitos como "Ya No" y "Cuando un Amigo Se Va", resonando con el público.</p>
+                        <a href="https://open.spotify.com/album/3bN950jX0B2l7k183j4z0h" target="_blank" class="btn small-btn">Escuchar en Spotify</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tour" class="section tour-section">
+            <div class="container">
+                <h2>Próximas Fechas</h2>
+                <img src="img/manuel_carrasco_gira.jpg" alt="Manuel Carrasco en su gira" class="tour-image">
+                <p>
+                    Manuel Carrasco suele anunciar sus giras con gran anticipación. No te pierdas la oportunidad de verlo en directo.
+                    Mantente atento a sus canales oficiales para las últimas novedades.
+                </p>
+                <a href="https://www.manuelcarrasco.es/gira/" target="_blank" class="btn">Ver Todas las Fechas</a>
+            </div>
+        </section>
+
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2>Conecta con Manuel</h2>
+                <p>Sigue a Manuel Carrasco en sus redes sociales y únete a su comunidad de fans.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/manuelcarrasco/" target="_blank" aria-label="Instagram de Manuel Carrasco">Instagram</a>
+                    <a href="https://twitter.com/manuelcarrasco_" target="_blank" aria-label="Twitter de Manuel Carrasco">Twitter</a>
+                    <a href="https://www.facebook.com/manuelcarrascooficial/" target="_blank" aria-label="Facebook de Manuel Carrasco">Facebook</a>
+                    <a href="https://www.youtube.com/user/manuelcarrascooficial" target="_blank" aria-label="Canal de YouTube de Manuel Carrasco">YouTube</a>
+                </div>
+                <form id="newsletter-form" class="newsletter-form">
+                    <h3>Suscríbete a la Pagina Oficial:</h3>
+                    <input type="email" id="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn">Suscribirme</button>
+                    <p id="form-message" class="form-message"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Fan Page de Manuel Carrasco. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+ function infodisco(NombreArtista, NombreDisco, NumeroCanciones, MillonesVendidosDiscos){
+       alert("Artista: "+ NombreArtista + "\n" +
+        "Nombre del Disco:" + NombreDisco + "\n" +
+         "Numero de Canciones:"+ NumeroCanciones + "\n" +
+          "Millones de Discos Vendidos:" + MillonesVendidosDiscos);
+    }
+    </script>
+</body>
+</html>
+
+
+
